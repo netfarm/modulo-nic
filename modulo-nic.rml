@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<!DOCTYPE document SYSTEM "rml.dtd">
+
+<!--
+    Modulo Registrazione Domini .it
+    Copyright (c) 2011 Gianluigi Tiesi <sherpya@netfarm.it>
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+    * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+    * Neither the name of the copyright holders nor the
+    names of its contributors may be used to endorse or promote products
+    derived from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<document>
+ <template pageSize="(21cm, 29.7cm)"
+           leftMargin="1cm"
+           rightMargin="1cm"
+           topMargin="1cm"
+           bottomMargin="1cm"
+           title="Modulo di registrazione %(kind)s"
+           author="Netfarm S.r.l."
+           showBoundary="false">
+
+    <pageTemplate id="main">
+        <pageGraphics>
+
+            <setFont name="Times-Roman" size="8" />
+            <drawCentredString x="10cm" y="1cm">Pagina <pageNumber /></drawCentredString>
+
+            <fill color="(0.9,0.9,1)"/>
+            <stroke color="(0.9,0.9,1)"/>
+            <translate dx="15cm" dy="-3cm"/>
+            <rotate degrees="50"/>
+            <setFont name="Helvetica" size="135"/>
+            <drawString x="23mm" y="12.7cm">Netfarm</drawString>
+            <lineMode width="1mm"/>
+            <rect round="0.5cm" x="18mm" y="12.2cm" width="18cm" height="5cm" fill="no" stroke="yes"/>
+
+        </pageGraphics>
+        <frame id="page" x1="1cm" y1="1.5cm" width="19cm" height="27.7cm"/>
+    </pageTemplate>
+
+    </template>
+
+<stylesheet>
+ <paraStyle name="body" fontName="Times-Roman" fontSize="10" alignment="JUSTIFY" />
+ <paraStyle name="section" parent="body" spaceBefore="0.3cm" spaceAfter="0.3cm" />
+ <paraStyle name="check" parent="body" spaceBefore="0.3cm" spaceAfter="0.3cm" alignment="CENTER" />
+
+ <blockTableStyle id="signature">
+    <blockAlignment value="RIGHT" start="1,0" stop="1,0" />
+ </blockTableStyle>
+</stylesheet>
+
+<story>
+
+<!-- sezione 1 e sezione 2 -->
+<para style="section"><b>Sez.1 e Sez.2 Modulo di registrazione del nome a dominio %(domain)s</b></para>
+
+<para style="body">Il richiedente <i>%(registrant)s</i>,
+registrante del nome a dominio <i>%(domain)s</i>, nel seguito <b>Registrante</b>,
+
+%(fulladdress)s,
+%(nation)s,
+numero di telefono <i>%(phone)s</i>,
+%(faxline)s
+indirizzo e-mail <i>%(email)s</i>,
+%(cfpivaHdr)s <i>%(cfpiva)s</i>,
+%(legal)s
+chiede la registrazione del nome a dominio <i>%(domain)s</i>
+per mezzo del Registrar (<b>NETFARM-REG</b>) assumendosi le responsabilità che derivano
+dall'utilizzo e dalla gestione del nome a dominio, e impegnandosi a comunicare tempestivamente al Registrar o,
+in subordine al Registro,  eventuali variazioni dei suoi dati secondo i modi indicati nel Regolamento di assegnazione del 
+ccTLD .it e nelle Linee Guida (<a href="http://www.nic.it/">http://www.nic.it/</a>)</para>
+
+<!-- sezione 3 -->
+<para style="section"><b>Sez. 3 - Dichiarazioni e assunzioni di responsabilità</b></para>
+<para style="body">Il registrante del nome a dominio in oggetto, in particolare dichiara sotto la propria responsabilità:</para>
+
+<para style="body" bulletText="a)">di essere in possesso della cittadinanza o residente in uno dei paesi appartenenti
+all'Unione Europea (in caso di registrazione per persona fisica);</para>
+
+<para style="body" bulletText="b)">di essere stabilito in uno dei paesi appartenenti all'Unione Europea (in caso di
+registrazione per altra organizzazione);</para>
+
+<para style="body" bulletText="c)">di essere a conoscenza e di accettare che la registrazione e gestione di un nome a dominio
+sono soggette al "Regolamento di assegnazione e gestione dei nomi a dominio nel ccTLD.it" e al
+"Regolamento per la risoluzione delle dispute nel ccTLD.it" e loro successive modifiche;</para>
+
+<para style="body" bulletText="d)">di avere titolo all'uso e/o disponibilità giuridica del nome a dominio richiesto e di non
+ledere, con tale richiesta di registrazione, diritti di terzi;</para>
+
+<para style="body" bulletText="e)">di essere a conoscenza che ai fini dell'inserimento dei dati personali nel database dei
+nomi a dominio assegnati, e alla loro eventuale diffusione e accessibilità via Internet,
+occorre fornire espressamente il consenso barrando le apposite caselle sulla base
+dell'informativa che segue. Sul sito del Registro (<link href="http://www.nic.it/">http://www.nic.it/</link>)
+è consultabile il documento "La politica del Registro .it sul database Whois";</para>
+
+<para style="body" bulletText="f)">di essere a conoscenza e di accettare che in caso di erronea o falsa dichiarazione nella
+presente richiesta, il Registro provvederà alla immediata revoca del nome a dominio,
+salvo ogni più ampia azione legale. In tal caso la revoca non potrà in alcun modo dare
+luogo a richieste di risarcimento nei confronti del Registro;</para>
+
+<para style="body" bulletText="g)">di sollevare il Registro da qualsiasi responsabilità derivante dalla assegnazione e
+dall'utilizzo del nome a dominio da parte del richiedente;</para>
+
+<para style="body" bulletText="h)">di accettare la giurisdizione italiana e le leggi dell'Ordinamento Statale Italiano.</para>
+
+<para style="check"><font name="ZapfDingbats"><unichar name="HEAVY CHECK MARK" /></font> SI accetta - <font name="ZapfDingbats"><unichar name="LOWER RIGHT SHADOWED WHITE SQUARE" /></font> NO non accetta</para>
+
+<!-- sezione 4 -->
+<para style="section"><b>Sez. 4 - Informativa e acquisizione del consenso ai fini del trattamento del dato per la
+registrazione del nome a dominio e per la visibilità in Internet</b></para>
+
+<para style="body">Informativa ai sensi del Codice in materia di protezione dei dati personali (D. Lgs. 30 giugno
+2003, n.196, art. 13) Per lo svolgimento delle attività cui la presente informativa si riferisce:</para>
+
+<para style="body" bulletText="a)">il titolare del trattamento è il CNR, attraverso l'Istituto di Informatica e Telematica del
+CNR, Registro .it (<link href="http://www.nic.it/">http://www.nic.it/</link>);</para>
+
+<para style="body" bulletText="b)">il responsabile del trattamento è il Registrar che di volta in volta gestisce il rapporto
+contrattuale con il Registrante; i suoi estremi identificativi sono contenuti nel contratto
+in essere tra il predetto Registrar ed il Registrante, e quindi conosciuti dall'interessato.
+Una lista dei responsabili del trattamento è disponibile sul sito web del Registro
+(<link href="http://www.nic.it/">http://www.nic.it/</link>). Il Registrar rimane titolare del trattamento relativamente al
+rapporto contrattuale direttamente intercorrente con il Registrante, non ricompreso
+nella presente informativa;</para>
+
+<para style="body" bulletText="c)">le informazioni obbligatorie sono quelle indispensabili all'espletamento
+del servizio richiesto.</para>
+
+<para style="body">I dati personali del Registrante sono raccolti dal Registrar che di volta in volta gestisce il
+rapporto contrattuale con il Registrante mediante il presente modulo, al fine dell'iscrizione e
+gestione del nome a dominio nel Data Base dei Nomi Assegnati presso l'Istituto di
+Informatica e Telematica del CNR, Registro .it.</para>
+
+<para style="body">Oltre ai dati personali raccolti tramite la compilazione del modulo, ove la transazione sia
+effettuata per via telematica, verrà inoltre rilevato e conservato l'indirizzo IP da cui origina il
+collegamento Internet relativo alla compilazione del modulo on-line presso il Registrant ed il
+log della relativa transazione, ai fini di contribuire all'identificazione del registrante in
+relazione alle generalità dichiarate ed alle dichiarazioni rese dal registrante stesso. I dati
+personali, il predetto indirizzo IP ed il log della transazione costituiscono le informazioni
+obbligatorie.</para>
+
+<para style="body">Le informazioni obbligatorie raccolte saranno trattate per finalità di gestione amministrativa
+e contabile, tutela dei diritti e le altre finalità ed attività connesse alla registrazione, gestione,
+contestazione, trasferimento e cancellazione del nome a dominio, nonché per ottemperare ad
+obblighi di legge, regolamento o normativa comunitaria, e comunicate a terzi per attività
+accessorie o necessarie ai fini dell'espletamento delle predette finalità. I dati non verranno
+utilizzati e comunicati a terzi per attività di marketing o commercializzazione diretta. Fatta
+eccezione per l'indirizzo IP, i dati saranno altresì comunicati ai terzi che dichiarino di voler
+agire per la tutela dei propri diritti nei confronti del Registrante in relazione alla
+registrazione o l'uso del nome a dominio. In ossequio alle norme tecniche della Internet
+Engineering Task Force - IETF (<link href="http://www.ietf.org/">http://www.ietf.org/</link>)
+volte a garantire la raggiungibilità del nome a dominio sulla rete Internet, al fine del mantenimento
+dell'equilibrio del relativo sistema, nonché in considerazione della politica del Registro .it tesa a
+evitare situazioni di anonimato e di consentire la rintracciabilità degli assegnatari, in caso di registrazione
+saranno in ogni caso visibili su Internet, tramite interrogazione Whois, insieme al nome a
+dominio i seguenti dati: nome e cognome del registrante o denominazione sociale, stato del
+dominio, Registrar e dati tecnici (contactID, data di registrazione, data di expire, data di
+ultimo aggiornamento e nameservers).</para>
+
+<para style="body">Ai fini della presente informativa, il consenso al trattamento ai fini di registrazione si riferisce
+a tutte le predette attività nel loro complesso.</para>
+
+<para style="body">Il conferimento a fini di registrazione è facoltativo, ma in caso di mancato consenso non sarà
+possibile giungere alla registrazione, assegnazione e gestione del nome a dominio.</para>
+
+<para style="body">Saranno inoltre visibili via Internet, previo separato consenso, tramite interrogazione Whois,
+insieme al nome a dominio i seguenti dati: indirizzo di residenza o della sede legale del
+registrante, numero di telefono, numero di fax, indirizzo e-mail, del Registrante.</para>
+
+<para style="body">Ai fini della presente informativa, il consenso ai fini dell'accessibilità e diffusione via Internet
+si riferisce solo a queste ultime attività e tipologie di dati.</para>
+
+<para style="body">Il conferimento ai fini dell'accessibilità e diffusione via Internet è facoltativo; il mancato
+consenso non precluderà la registrazione ma solo la visibilità pubblica via interrogazione
+Whois dei predetti dati, nei limiti sopra definiti.</para>
+
+<para style="body">Ulteriori informazioni sulle modalità di interrogazione del data base del Registro sono
+disponibili sul sito web del Registro: <link href="http://www.nic.it/">http://www.nic.it/</link>.</para>
+
+<para style="body">L'interessato gode dei diritti di cui all'art. 7 del Codice per la protezione dei dati personali
+tra i quali figurano il diritto di accesso, rettifica e cancellazione dei dati che lo riguardano.</para>
+
+<para style="body">L'esercizio dei predetti diritti potrà essere esercitato tramite richiesta rivolta al Registrar che
+di volta in volta gestisce il rapporto contrattuale con il Registrante e in subordine all'Istituto
+di Informatica e Telematica del CNR, Via Giuseppe Moruzzi, 1, I-56124 Pisa, Italia.</para>
+
+<!-- sezione 5 -->
+<para style="section"><b>Sez. 5 - Consenso al trattamento dei dati personali a fini di registrazione</b></para>
+
+<para style="body">L'interessato, letta l'informativa di cui sopra, presta il consenso al trattamento delle
+informazioni obbligatorie ai fini di registrazione, come definiti nella informativa di cui sopra.</para>
+
+<para style="body">Il conferimento dei dati è facoltativo, ma in caso di mancato consenso non sarà possibile
+giungere alla registrazione, assegnazione e gestione del nome a dominio.</para>
+
+<para style="check"><font name="ZapfDingbats"><unichar name="HEAVY CHECK MARK" /></font> SI accetta - <font name="ZapfDingbats"><unichar name="LOWER RIGHT SHADOWED WHITE SQUARE" /></font> NO non accetta</para>
+
+
+<!-- sezione 6 -->
+<para style="section"><b>Sez. 6 - Consenso al trattamento dei dati personali per la diffusione ed accessibilità via Internet</b></para>
+
+<para style="body">L'interessato, letta l'informativa di cui sopra, presta il consenso alla diffusione e accessibilità
+via Internet, come definite nella informativa di cui sopra.</para>
+
+<para style="body">Il conferimento è facoltativo, e il mancato consenso non permette la diffusione e accessibilità
+via Internet dei dati relativi.</para>
+
+<para style="check"><font name="ZapfDingbats">%(privacy_tick_yes)s</font> SI accetta - <font name="ZapfDingbats">%(privacy_tick_no)s</font> NO non accetta</para>
+
+<!-- sezione 7 -->
+<para style="section"><b>Sez. 7 - Accettazione esplicita dei seguenti punti</b></para>
+
+<para style="body">Per accettazione esplicita dei seguenti punti:</para>
+
+<para style="body" bulletText="c)">di essere a conoscenza e di accettare che la registrazione e gestione di un nome a dominio
+sono soggette al "Regolamento di assegnazione e gestione dei nomi a dominio nel ccTLD .it"
+e al "Regolamento per la risoluzione delle dispute nel ccTLD .it" e loro successive modifiche;</para>
+
+<para style="body" bulletText="f)">di essere a conoscenza e di accettare che in caso di erronea o falsa dichiarazione nella
+presente richiesta, il Registro provvederà all'immediata revoca del nome a dominio, salvo
+ogni più ampia azione legale. In tal caso la revoca non potrà in alcun modo dare luogo a
+richieste di risarcimento nei confronti del Registro;</para>
+
+<para style="body" bulletText="g)">di sollevare il Registro da qualsiasi responsabilità derivante dalla assegnazione e
+dall'utilizzo del nome a dominio da parte della persona fisica richiedente;</para>
+
+<para style="body" bulletText="h)">di accettare la giurisdizione italiana e le leggi dell'Ordinamento Statale Italiano.</para>
+
+<!-- sezione 8 -->
+<spacer length="0.5cm" />
+
+<para style="section"><b>Sez. 8 - Dati riepilogativi del Registrante</b></para>
+
+<blockTable>
+ <tr>
+  <td>Accettazione Clausole e Assunzioni di Responsabilità:</td>
+  <td><para><b>SI</b></para></td>
+ </tr>
+
+ <tr>
+  <td>Informativa e Trattamento Dati:</td>
+  <td><para><b>SI</b></para></td>
+ </tr>
+
+ <tr>
+  <td>Informativa e Trattamento Dati diffusione Internet:</td>
+  <td><para><b>%(privacy)s</b></para></td>
+ </tr>
+
+ <tr>
+  <td>Accettazione Clausole Vessatorie:</td>
+  <td><para><b>SI</b></para></td>
+ </tr>
+
+ <tr>
+  <td>Indirizzo e-mail del registrante:</td>
+  <td><para><i>%(email)s</i></para></td>
+ </tr>
+
+</blockTable>
+
+<spacer length="0.5cm"/>
+
+<blockTable style="signature">
+ <tr>
+  <td>Data ___/___/___</td>
+  <td>Luogo</td>
+  <td>______________________________</td>
+ </tr>
+
+ <tr>
+  <td><para><b>Firma richiedente</b></para></td>
+  <td>&nbsp;</td>
+  <td>______________________________</td>
+ </tr>
+</blockTable>
+
+</story>
+
+</document>

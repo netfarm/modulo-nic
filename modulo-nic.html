@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+    Modulo Registrazione Domini .it
+    Copyright (c) 2011 Gianluigi Tiesi <sherpya@netfarm.it>
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+    * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+    * Neither the name of the copyright holders nor the
+    names of its contributors may be used to endorse or promote products
+    derived from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+    ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+    <head>
+        <title>Modulo registrazione dominio</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="Language" content="Italian" />
+
+        <style type="text/css">
+            body {
+                color: black;
+                font-family: Georgia, "DejaVu Sans", Arial, Sans-Serif;
+                background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAiCAIAAAC1JZyVAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsRAAALEQF/ZF+RAAAAB3RJTUUH1AUIAS4OpVIdGgAAAjhJREFUeNrtV8Fu00AQfZOswKrjIBQnLQWEqtx6aC8g/v+Eeo3kSBwq6CXduFYRjoMWsdZy8Nb22ru2idSqB/ZoZ/L2vZk3MyalFB7/jPAk54lgWPdrlUvaJ8hiTBbKD2nMDoMhV25ULmm7htghXGJ68jhsUk7JNQD14XMPg5Tra3VyZfZIHoF53Rgql3RzBSm0LMzr4D1qB2MYD9quSwwAkAI8Ksn1wOjgybwbQ+US2Z3lRRb3w1TBk0VP5eyTw31TBis/fBb2VH4I5lleOGQYWZXt1YTGDOGyhTF3VRrrbQFOQ0xPlB/Sdl3xcLvYAZNcA6AsVsfnHSVHY4bTi3/PTamsFMhinF7UMVQuVS6HJs/8pVs0sVO5rGBSTjzSCRjAgPZJXcNRQ+66qyvdH2QEgOzOZfXBojXiHf84yFVmO7AVdN0QZZsKl/p5Xx8qNXfnRuxw9BqzM9xGkL8rpEJPs16LJNshUw4vcLORAoDyXmF2ZjznETarRvG4LKx7vNkOWs3m1w+6/66mb+DPGnmimysjVVncpqKHUCt/Jkyh/s9bAvD2EsGiyZVH2KyQcruBUq4HXbhs3MDcBTYrPQi8QL37CAJ9+2LMrvqFvMBQJosfhojFWCZMMZ6L4wV4/wlEECmyGCmviqLjOMzb2mxKQgXS8bl6cQSA4q/Y39uZlfzcu0ATprFIAAB7CX+G/I82bHFlsYMUWrq+9mzf0/SGZh31k3l3zz50HWz070P3Qvr/RfBsYf4C9Y4ppiGJYE4AAAAASUVORK5CYII=) white repeat-y fixed;
+                margin-left: 40px;
+            }
+            a { color: #555; text-decoration: none; background-color: inherit; }
+            a:link { color: #555; background-color: inherit; }
+            a:visited { color: #555; background-color: inherit; }
+
+            div#copy { text-align: center; }
+
+            form fieldset { margin-bottom: 10px; }
+            form legend { padding: 0 2px; font-weight: bold; }
+            form label { width: 200px; display: inline-block; line-height: 1.8; vertical-align: top;  }
+
+            form fieldset ol { margin: 0; padding: 10px; }
+            form fieldset li { list-style: none; padding: 5px; margin: 0; }
+            form fieldset li.hidden { display: none; }
+            form fieldset span.red { color: red; margin-left: 10px; }
+            form fieldset span.green { color: green; margin-left: 10px; }
+            form fieldset span.black { color: black; margin-left: 10px; }
+
+            form fieldset ol.privacy li { list-style-type: lower-alpha; margin-left: 15px; }
+
+            form fieldset.centered { text-align: center; }
+            form fieldset.centered legend { text-align: left; }
+            form fieldset.centered input { width: auto; }
+
+            form fieldset fieldset { border: none; margin: 3px 0 0; }
+            form fieldset fieldset legend { padding: 0 0 5px; font-weight: normal; }
+            form fieldset fieldset label { display: block; width: auto; margin-left: 123px; }
+
+            form input { width: 300px; border: 1px solid #ccc; }
+            form select { width: 302px; margin-left: -3px; border: 1px solid #ccc; }
+            form input#submit { width: 200px; padding: 4px; border: 1px solid black; }
+        </style>
+
+        <script type="text/javascript">
+            // <![CDATA[
+            function changeKind(newvalue)
+            {
+                document.location = document.location.href.split('?', 1)[0] + '?kind=' + newvalue;
+            }
+
+            function setupKind(newvalue)
+            {
+                var kind = document.getElementById('kind');
+                kind.value = newvalue;
+
+                if (newvalue == 'company')
+                {
+                    document.getElementById('labeladdress').innerHTML = 'Sede in';
+                    document.getElementById('labelisocode').innerHTML = 'Nazione (ISO3166-1)';
+                    document.getElementById('licf').className = 'hidden';
+                    document.getElementById('lipiva').className = null;
+                    document.getElementById('lilegalname').className = null;
+                    document.getElementById('lilegalcf').className = null;
+                    document.getElementById('liadmincname').className = null;
+                    document.getElementById('liadminccf').className = null;
+                    return;
+                }
+                if (newvalue == 'single')
+                {
+                    document.getElementById('labeladdress').innerHTML = 'Residente in';
+                    document.getElementById('labelisocode').innerHTML = 'Nazionalità (ISO3166-1)';
+                    document.getElementById('licf').className = null;
+                    document.getElementById('lipiva').className = 'hidden';
+                    document.getElementById('lilegalname').className = 'hidden';
+                    document.getElementById('lilegalcf').className = 'hidden';
+                    document.getElementById('liadmincname').className = 'hidden';
+                    document.getElementById('liadminccf').className = 'hidden';
+                    return;
+                }
+            }
+
+            function checkCompany()
+            {
+                var qs = unescape(window.location.search);
+                if (qs.indexOf('kind=company') == -1)
+                    setupKind('single');
+                else
+                    setupKind('company');
+            }
+            // ]]>
+        </script>
+    </head>
+
+    <body onload="checkCompany();">
+        <h2>Modulo registrazione dominio</h2>
+        <form action="" method="get">
+
+            <!-- sezione 1 -->
+            <fieldset>
+                <legend>Dati del registrante</legend>
+                <ol id="fieldset">
+                    <li>
+                        <label for="kind">Tipologia</label>
+                        <select id="kind" name="kind" onchange="changeKind(this.value);">
+                            <option value="single" selected="selected">Persone Fisiche</option>
+                            <option value="company">Aziende</option>
+                        </select>
+                    </li>
+
+                    <li><label for="domain">Nome a dominio</label><input id="domain" name="domain" value="%(domain)s" />%(domain_msg)s</li>
+                    <li><label for="registrant">Registrante</label><input id="registrant" name="registrant" value="%(registrant)s" />%(registrant_msg)s</li>
+                    <li><label id="labeladdress" for="address">Residente in</label><input id="address" name="address" value="%(address)s" />%(address_msg)s</li>
+                    <li><label for="cap">C.A.P.</label><input id="cap" name="cap" value="%(cap)s" />%(cap_msg)s</li>
+                    <li><label for="town">Comune</label><input id="town" name="town" value="%(town)s" />%(town_msg)s</li>
+                    <li><label for="province">Provincia (Codice)</label><input id="province" name="province" value="%(province)s" />%(province_msg)s</li>
+                    <li><label id="labelisocode" for="isocode">Nazionalità (ISO3166-1)</label><input id="isocode" name="isocode" value="%(isocode)s" />%(isocode_msg)s</li>
+                    <li id="licf"><label for="cf">Codice fiscale</label><input id="cf" name="cf" value="%(cf)s" />%(cf_msg)s</li>
+                    <li id="lipiva" class="hidden"><label for="piva">Partita IVA</label><input id="piva" name="piva" value="%(piva)s" />%(piva_msg)s</li>
+                    <li><label for="phone">Numero telefonico</label><input id="phone" name="phone" value="%(phone)s" />%(phone_msg)s</li>
+                    <li><label for="fax">Numero di fax</label><input id="fax" name="fax" value="%(fax)s" />%(fax_msg)s</li>
+                    <li id="lilegalname" class="hidden"><label for="legalname">Rappresentante legale</label><input id="legalname" name="legalname" value="%(legalname)s" />%(legalname_msg)s</li>
+                    <li id="lilegalcf" class="hidden"><label for="legalcf">Codice Fiscale</label><input id="legalcf" name="legalcf" value="%(legalcf)s" />%(legalcf_msg)s</li>
+                    <li id="liadmincname" class="hidden"><label for="admincname">Firmatario autorizzato</label><input id="admincname" name="admincname" value="%(admincname)s" />%(admincname_msg)s</li>
+                    <li><label for="email">Indirizzo email</label><input id="email" name="email" value="%(email)s" />%(email_msg)s</li>
+                    <li id="liadminccf" class="hidden"><label for="adminccf">Codice Fiscale</label><input id="adminccf" name="adminccf" value="%(adminccf)s" />%(adminccf_msg)s</li>
+                </ol>
+            </fieldset>
+
+            <!-- sezione 3 -->
+            <fieldset>
+                <legend>Dichiarazioni e assunzioni di responsabilità</legend>
+                <p>Il registrante del nome a dominio in oggetto, in particolare dichiara sotto la propria responsabilità:</p>
+                <ol class="privacy">
+                    <li>di essere in possesso della cittadinanza o residente in uno dei paesi appartenenti all'Unione Europea
+                       (in caso di registrazione per persona fisica);</li>
+                    <li>di essere stabilito in uno dei paesi appartenenti all'Unione Europea (in caso di registrazione per altra organizzazione);</li>
+                    <li>di essere a conoscenza e di accettare che la registrazione e gestione di un nome a dominio sono soggette
+                        al "Regolamento di assegnazione e gestione dei nomi a dominio nel ccTLD.it" e al
+                        "Regolamento per la risoluzione delle dispute nel ccTLD.it" e loro successive modifiche;</li>
+                    <li>di avere titolo all'uso e/o disponibilità giuridica del nome a dominio richiesto e di non ledere,
+                    con tale richiesta di registrazione, diritti di terzi;</li>
+                    <li>di essere a conoscenza che ai fini dell'inserimento dei dati personali nel database dei nomi a dominio assegnati,
+                        e alla loro eventuale diffusione e accessibilità via Internet, occorre fornire espressamente il consenso barrando
+                        le apposite caselle sulla base dell'informativa che segue. Sul sito del Registro
+                        (<a href="http://www.nic.it/">http://www.nic.it/</a>) è consultabile il documento "La politica del Registro .it
+                        sul database Whois";</li>
+                    <li>di essere a conoscenza e di accettare che in caso di erronea o falsa dichiarazione nella presente richiesta,
+                        il Registro provvederà alla immediata revoca del nome a dominio, salvo ogni più ampia azione legale.
+                        In tal caso la revoca non potrà in alcun modo dare luogo a richieste di risarcimento nei confronti del Registro;</li>
+                    <li>di sollevare il Registro da qualsiasi responsabilità derivante dalla assegnazione e dall'utilizzo del nome a dominio
+                        da parte del richiedente;</li>
+                    <li>di accettare la giurisdizione italiana e le leggi dell'Ordinamento Statale Italiano.</li>
+                </ol>
+                <fieldset class="centered">
+                    <input type="radio" name="sect3" value="yes" %(sect3_yes)s />SI accetto
+                    <input type="radio" name="sect3" value="no" %(sect3_no)s />NO non accetto
+                    %(sect3_mandatory)s
+                </fieldset>
+            </fieldset>
+
+            <!-- sezione 5 -->
+            <fieldset>
+                <legend>Consenso al trattamento dei dati personali a fini di registrazione</legend>
+                <p>L'interessato, letta l'informativa di cui sopra, presta il consenso al trattamento delle
+                    informazioni obbligatorie ai fini di registrazione, come definiti nella informativa di cui sopra.</p>
+                <p>Il conferimento dei dati è facoltativo, ma in caso di mancato consenso non sarà possibile
+                    giungere alla registrazione, assegnazione e gestione del nome a dominio.</p>
+                <fieldset class="centered">
+                    <input type="radio" name="sect5" value="yes" %(sect5_yes)s />SI accetto
+                    <input type="radio" name="sect5" value="no" %(sect5_no)s />NO non accetto
+                    %(sect5_mandatory)s
+                </fieldset>
+            </fieldset>
+
+            <!-- sezione 6 -->
+            <fieldset>
+                <legend>Consenso al trattamento dei dati personali per la diffusione ed accessibilità via Internet</legend>
+                <p>L'interessato, letta l'informativa di cui sopra, presta il consenso alla diffusione e accessibilità
+                    via Internet, come definite nella informativa di cui sopra.</p>
+                <p>Il conferimento è facoltativo, e il mancato consenso non permette la diffusione e accessibilità
+                    via Internet dei dati relativi.</p>
+                <fieldset class="centered">
+                    <input type="radio" name="privacy" value="yes" %(privacy_yes)s />SI accetto
+                    <input type="radio" name="privacy" value="no" %(privacy_no)s />NO non accetto
+                </fieldset>
+            </fieldset>
+
+            <fieldset class="centered">
+                <legend>Conferma</legend>
+                <input id="submit" name="submit" type="submit" value="Invia" />
+            </fieldset>
+
+        </form>
+    <div id="copy"><a href="https://github.com/sherpya/modulo-nic">modulo-nic v%(version)s</a>
+                   &copy; 2011 Gianluigi Tiesi <a href="mailto:sherpya@netfarm.it">sherpya@netfarm.it</a></div>
+    </body>
+
+</html>
