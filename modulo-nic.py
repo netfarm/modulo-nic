@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #
 # Modulo Registrazione Domini .it
-# Copyright (c) 2011 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2011-2013 Gianluigi Tiesi <sherpya@netfarm.it>
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
