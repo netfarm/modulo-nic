@@ -94,14 +94,26 @@ class validators:
         return checksum == ctrlchar
 
     @staticmethod
+    # Luhn - http://it.wikipedia.org/wiki/Partita_IVA
     def piva(value):
         if (len(value) != 11) or not value.isdigit():
             return False
 
         value = map(int, value)
-        checksum  = sum(map(lambda x: value[x], xrange(0, 10, 2)))
-        checksum += sum(map(lambda x: (2 * value[x]) % 9, xrange(1, 10, 2)))
-        checksum = 10 - (checksum % 10)
+
+        # dispari (odd)
+        x = sum(map(lambda x: value[x], xrange(0, 10, 2)))
+
+        # pari (even)
+        y = 0
+        for pos in xrange(1, 10, 2):
+            c = 2 * value[pos]
+            if c > 9: c -= 9
+            y += c
+
+        t = (x + y) % 10
+
+        checksum = (10 - t) % 10
         return value[10] == checksum
 
     @staticmethod
