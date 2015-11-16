@@ -75,7 +75,7 @@
 <!-- sezione 1 e sezione 2 -->
 <para style="section"><b>Sez.1 e Sez.2 Modulo di registrazione del nome a dominio %(domain)s</b></para>
 
-<para style="body">Il richiedente <i>%(registrant)s</i>,
+<para style="body">%(registrant_label)s <i>%(registrant)s</i>,
 registrante del nome a dominio <i>%(domain)s</i>, nel seguito <b>Registrante</b>,
 
 %(fulladdress)s,

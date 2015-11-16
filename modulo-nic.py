@@ -56,6 +56,7 @@ else:
 
 re_email = re.compile(r'^[a-zA-Z0-9._%-+]+@[a-zA-Z0-9._%-]+.[a-zA-Z]{2,6}$')
 re_cf    = re.compile(r'^\w\w\w\w\w\w\d\d\w\d\d\w\d\d\d\w$')
+re_phone = re.compile(r'^\+\d\d\.[0-9]')
 
 checked   = u'<unichar name="HEAVY CHECK MARK" />'
 unchecked = u'<unichar name="LOWER RIGHT SHADOWED WHITE SQUARE" />'
@@ -185,6 +186,14 @@ class validators:
     def digits_optional(value):
         return (len(value) == 0) or validators.digits(value)
 
+    @staticmethod
+    def phone(value):
+        return re_phone.match(value) is not None
+
+    @staticmethod
+    def phone_optional(value):
+        return (len(value) == 0) or validators.phone(value)
+
 
 _formfields = {
     'domain'        : (validators.domain, u'netfarm.it'),
@@ -197,16 +206,14 @@ _formfields = {
     'province'      : (validators.province, u'PI'),
     'isocode'       : (validators.iso, u'IT'),
     'email'         : (validators.email, u'info@netfarm.it'),
-    'phone'         : (validators.digits, u'0500981576'),
-    'fax'           : (validators.digits_optional, u'050777659'),
+    'phone'         : (validators.phone, u'+39.0500981576'),
+    'fax'           : (validators.phone_optional, u'+39.050777659'),
     'legalname'     : (validators.text, u'Giuseppe Garibaldi'),
     'legalcf'       : (validators.cf, u'GRBGPP07L04E425B'),
-    'admincname'    : (validators.text, u'Alex Drastiko'),
-    'adminccf'      : (validators.cf, u'LXADST69B05D643Y'),
 }
 
-_notforsingle = ('legalname', 'legalcf', 'admincname', 'adminccf', 'piva')
-_upcase = ('province', 'isocode', 'legalcf', 'adminccf' )
+_notforsingle = ('legalname', 'legalcf', 'piva')
+_upcase = ('province', 'isocode', 'legalcf')
 
 def pdf(fields):
     template = os.path.join(DATADIR, 'modulo-nic.rml')
@@ -293,6 +300,7 @@ def page():
 
         # Persona fisica
         if fields['kind'] == u'single':
+            fields['registrant_label'] = u'Il richiedente'
             fields['cfpivaHdr'] = u'codice fiscale'
             fields['cfpiva'] = fields['cf']
             fields['fulladdress'] = u'residente in ' + address
@@ -300,14 +308,14 @@ def page():
             fields['legal'] = u''
         # Aziende
         elif fields['kind'] == u'company':
+            fields['registrant_label'] = 'L\'organizzazione'
             fields['cfpivaHdr'] = u'partita IVA'
             fields['cfpiva'] = fields['piva']
             fields['fulladdress'] = u'con sede in ' + address
             fields['nation'] = u'Nazione <i>' + fields['isocode'] + u'</i>'
             fields['legal'] =  u'rappresentata legalmente da <i>' + fields['legalname'] + u'</i>'
             fields['legal'] += u' codice fiscale <i>' + fields['legalcf'] + u'</i>'
-            fields['legal'] += u' e firmatario autorizzato <i>' + fields['admincname'] + u'</i>'
-            fields['legal'] += u' codice fiscale <i>' + fields['legalcf'] + u'</i>,'
+            fields['legal'] += u' in qualità di rappresentante legale / firmatario autorizzato,'
         else:
             valid = False
 

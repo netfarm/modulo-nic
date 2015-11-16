@@ -48,7 +48,7 @@
 
             form fieldset { margin-bottom: 10px; }
             form legend { padding: 0 2px; font-weight: bold; }
-            form label { width: 200px; display: inline-block; line-height: 1.8; vertical-align: top;  }
+            form label { width: 300px; display: inline-block; line-height: 1.8; vertical-align: top;  }
 
             form fieldset ol { margin: 0; padding: 10px; }
             form fieldset li { list-style: none; padding: 5px; margin: 0; }
@@ -92,8 +92,6 @@
                     document.getElementById('lipiva').className = null;
                     document.getElementById('lilegalname').className = null;
                     document.getElementById('lilegalcf').className = null;
-                    document.getElementById('liadmincname').className = null;
-                    document.getElementById('liadminccf').className = null;
                     return;
                 }
                 if (newvalue == 'single')
@@ -104,8 +102,6 @@
                     document.getElementById('lipiva').className = 'hidden';
                     document.getElementById('lilegalname').className = 'hidden';
                     document.getElementById('lilegalcf').className = 'hidden';
-                    document.getElementById('liadmincname').className = 'hidden';
-                    document.getElementById('liadminccf').className = 'hidden';
                     return;
                 }
             }
@@ -149,11 +145,9 @@
                     <li id="lipiva" class="hidden"><label for="piva">Partita IVA</label><input id="piva" name="piva" value="%(piva)s" />%(piva_msg)s</li>
                     <li><label for="phone">Numero telefonico</label><input id="phone" name="phone" value="%(phone)s" />%(phone_msg)s</li>
                     <li><label for="fax">Numero di fax</label><input id="fax" name="fax" value="%(fax)s" />%(fax_msg)s</li>
-                    <li id="lilegalname" class="hidden"><label for="legalname">Rappresentante legale</label><input id="legalname" name="legalname" value="%(legalname)s" />%(legalname_msg)s</li>
+                    <li id="lilegalname" class="hidden"><label for="legalname">Rappresentante legale / firmatario</label><input id="legalname" name="legalname" value="%(legalname)s" />%(legalname_msg)s</li>
                     <li id="lilegalcf" class="hidden"><label for="legalcf">Codice Fiscale</label><input id="legalcf" name="legalcf" value="%(legalcf)s" />%(legalcf_msg)s</li>
-                    <li id="liadmincname" class="hidden"><label for="admincname">Firmatario autorizzato</label><input id="admincname" name="admincname" value="%(admincname)s" />%(admincname_msg)s</li>
                     <li><label for="email">Indirizzo email</label><input id="email" name="email" value="%(email)s" />%(email_msg)s</li>
-                    <li id="liadminccf" class="hidden"><label for="adminccf">Codice Fiscale</label><input id="adminccf" name="adminccf" value="%(adminccf)s" />%(adminccf_msg)s</li>
                 </ol>
             </fieldset>
 
