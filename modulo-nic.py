@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# vim: ft=python
 #
 # Modulo Registrazione Domini .it
-# Copyright (c) 2011-2013 Gianluigi Tiesi <sherpya@netfarm.it>
+# Copyright (c) 2011-2015 Gianluigi Tiesi <sherpya@netfarm.it>
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -27,7 +28,7 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-__version__ = '0.1'
+__version__ = '0.2'
 
 import re
 import codecs
