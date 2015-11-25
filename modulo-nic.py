@@ -208,7 +208,7 @@ _formfields = {
     'isocode'       : (validators.iso, u'IT'),
     'email'         : (validators.email, u'info@netfarm.it'),
     'phone'         : (validators.phone, u'+39.0500981576'),
-    'fax'           : (validators.phone_optional, u'+39.050777659'),
+    'fax'           : (validators.phone_optional, u'+39.0508665172'),
     'legalname'     : (validators.text, u'Giuseppe Garibaldi'),
     'legalcf'       : (validators.cf, u'GRBGPP07L04E425B'),
 }
