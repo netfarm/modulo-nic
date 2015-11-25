@@ -242,6 +242,7 @@ def two_up(data):
 
     writer = PdfWriter()
     writer.addpage(pages.render())
+    sys.stdout.write('Content-Type: application/x-pdf\n\n')
     writer.write(sys.stdout)
 
 def pdf(fields):
@@ -249,8 +250,6 @@ def pdf(fields):
     _input = codecs.open(template, 'r', 'utf-8').read()
     _input = _input % fields
     _input = _input.encode('utf-8')
-
-    print 'Content-Type: application/x-pdf\n'
     two_up(trml2pdf.parseString(_input))
 
 def page():
