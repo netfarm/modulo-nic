@@ -1,0 +1,7 @@
+Pillow==2.4.0
+argparse==1.2.1
+pdfrw==0.2
+reportlab==3.2.0
+six==1.10.0
+trml2pdf==0.3
+wsgiref==0.1.2
