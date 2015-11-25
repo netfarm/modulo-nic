@@ -28,13 +28,17 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-__version__ = '0.2'
+__version__ = '0.3'
 
+import os
+import sys
 import re
 import codecs
-import os, sys
+
 from trml2pdf import trml2pdf
 trml2pdf.encoding = 'utf-8'
+
+from pdfrw import PdfReader, PdfWriter, PageMerge
 
 import cgi
 import cgitb
@@ -216,13 +220,38 @@ _formfields = {
 _notforsingle = ('legalname', 'legalcf', 'piva')
 _upcase = ('province', 'isocode', 'legalcf')
 
+def two_up(data):
+    pages = PdfReader(fdata=data).pages
+    pages = PageMerge() + pages
+
+    assert len(pages) == 2
+
+    left, right = pages
+
+    rotation = 270
+    scale = 0.5
+
+    x_increment = scale * pages.xobj_box[2]
+
+    left.Rotate = rotation
+    left.scale(scale)
+
+    right.Rotate = rotation
+    right.scale(scale)
+    right.x = x_increment
+
+    writer = PdfWriter()
+    writer.addpage(pages.render())
+    writer.write(sys.stdout)
+
 def pdf(fields):
     template = os.path.join(DATADIR, 'modulo-nic.rml')
     _input = codecs.open(template, 'r', 'utf-8').read()
     _input = _input % fields
     _input = _input.encode('utf-8')
+
     print 'Content-Type: application/x-pdf\n'
-    print trml2pdf.parseString(_input)
+    two_up(trml2pdf.parseString(_input))
 
 def page():
     template = os.path.join(DATADIR, 'modulo-nic.html')
