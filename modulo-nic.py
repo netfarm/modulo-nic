@@ -372,4 +372,3 @@ def page():
 if __name__ == '__main__':
     cgitb.enable()
     page()
-
