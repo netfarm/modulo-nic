@@ -7,13 +7,12 @@ Informazioni
 Utilizzo questo software per generare il modulo pdf per la registrazione dei domini .it.
 I Registrant devono conservarlo con la firma del registrante.
 
-È scritto in python ed ha relativamente poche dipendenze. Ha bisogno di `python-reportlab`
-e `python-trml2pdf`, questi sono i nomi dei pacchetti per le distribuzioni Debian based,
-ma altre distribuzioni avranno gli equivalenti.
+Può essere utilizzato in un `virtualenv`, per installare le dipendenze
+`pip install -r requirements.txt`
 
-È stato testato con apache2 ma dovrebbe funzionare con qualunque server supporti i cgi-bin.
+È stato testato con `apache2` e `nginx` (con uwsgi) ma dovrebbe funzionare con qualunque server supporti i cgi-bin.
 È necessario impostare il charset del server `utf-8`, altrimenti le lettere accentate non saranno
-visualizzate correttamente.
+gestite correttamente.
 
 Istruzioni
 ----------
@@ -40,8 +39,4 @@ Lo script attiva `cgitb` (in cima) per visualizzare eventuali errori di esecuzio
 su file gli errori, consulta il modulo `cgi` nella documentazione di python.
 
 Se invece il server web restituisce un Internal Error (500), consulta i log di errore,
-con apache `/var/log/apache2/error.log`.
-
--
-
-Se vi sono stato utile una mail (<sherpya@netfarm.it>) non vi costa nulla :)
+su apache `/var/log/apache2/error.log`.
