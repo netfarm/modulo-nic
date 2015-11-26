@@ -236,7 +236,7 @@ def two_up(data):
     left, right = pages
 
     rotation = 270
-    scale = 0.5
+    scale = 0.7071067811865476  # sqrt(0.5)
 
     x_increment = scale * pages.xobj_box[2]
 
