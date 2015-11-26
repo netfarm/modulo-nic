@@ -228,8 +228,8 @@ _notforsingle = ('legalname', 'legalcf', 'piva')
 _upcase = ('province', 'isocode', 'legalcf')
 
 def two_up(data):
-    pages = PdfReader(fdata=data).pages
-    pages = PageMerge() + pages
+    pdf = PdfReader(fdata=data)
+    pages = PageMerge() + pdf.pages
 
     assert len(pages) == 2
 
@@ -249,6 +249,11 @@ def two_up(data):
 
     writer = PdfWriter()
     writer.addpage(pages.render())
+
+    # retain and update metadata
+    pdf.Info.Creator = 'modulo-nic.py %s' % __version__
+    writer.trailer.Info = pdf.Info
+
     sys.stdout.write('Content-Type: application/x-pdf\n\n')
     writer.write(sys.stdout)
 
