@@ -36,15 +36,6 @@ import re
 import codecs
 
 from trml2pdf import trml2pdf
-
-# some old version of trml2pdf does not defaults to utf-8
-trml2pdf.encoding = 'utf-8'
-
-# workaround to trml2pdf 0.3 with python2
-def text_type(source):
-    return source.decode('utf-8')
-trml2pdf.text_type = text_type
-
 from pdfrw import PdfReader, PdfWriter, PageMerge
 
 import cgi
